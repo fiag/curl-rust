@@ -590,6 +590,11 @@ impl Easy {
         self.inner.dns_cache_timeout(dur)
     }
 
+    /// Same as [`Easy2::dns_servers`](struct.Easy2.html#method.dns_servers)
+    pub fn dns_servers(&mut self, servers: &str) -> Result<(), Error> {
+        self.inner.dns_servers(servers)
+    }
+
     /// Same as [`Easy2::buffer_size`](struct.Easy2.html#method.buffer_size)
     pub fn buffer_size(&mut self, size: usize) -> Result<(), Error> {
         self.inner.buffer_size(size)
