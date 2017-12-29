@@ -1799,21 +1799,21 @@ impl<H> Easy2<H> {
     //     self.setopt_str(curl_sys::CURLOPT_DNS_LOCAL_IP6, &ip)
     // }
     //
-    // /// Set preferred DNS servers.
-    // ///
-    // /// Provides a list of DNS servers to be used instead of the system default.
-    // /// The format of the dns servers option is:
-    // ///
-    // /// ```text
-    // /// host[:port],[host[:port]]...
-    // /// ```
-    // ///
-    // /// By default this option is not set and corresponds to
-    // /// `CURLOPT_DNS_SERVERS`.
-    // pub fn dns_servers(&mut self, servers: &str) -> Result<(), Error> {
-    //     let servers = try!(CString::new(servers));
-    //     self.setopt_str(curl_sys::CURLOPT_DNS_SERVERS, &servers)
-    // }
+    /// Set preferred DNS servers.
+    ///
+    /// Provides a list of DNS servers to be used instead of the system default.
+    /// The format of the dns servers option is:
+    ///
+    /// ```text
+    /// host[:port],[host[:port]]...
+    /// ```
+    ///
+    /// By default this option is not set and corresponds to
+    /// `CURLOPT_DNS_SERVERS`.
+    pub fn dns_servers(&mut self, servers: &str) -> Result<(), Error> {
+        let servers = try!(CString::new(servers));
+        self.setopt_str(curl_sys::CURLOPT_DNS_SERVERS, &servers)
+    }
 
     // =========================================================================
     // SSL/Security Options
